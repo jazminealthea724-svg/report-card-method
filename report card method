@@ -1,0 +1,118 @@
+import java.util.Scanner;
+public class Main {
+    static Scanner input = new Scanner(System.in);
+
+    static int LRN, GradeLevel, Age;
+    static String Lastname, Firstname, Middlename;
+    static String Track, Section, Gender;
+    static int[] grades = new int[7];
+
+    static void studentInformation() {
+        System.out.print("Enter LRN: ");
+        LRN = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter Lastname: ");
+        Lastname = input.nextLine();
+
+        System.out.print("Enter Firstname: ");
+        Firstname = input.nextLine();
+
+        System.out.print("Enter Middlename: ");
+        Middlename = input.nextLine();
+
+        System.out.print("Enter Track: ");
+        Track = input.nextLine();
+
+        System.out.print("Enter Grade Level: ");
+        GradeLevel = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter Section: ");
+        Section = input.nextLine();
+
+        System.out.print("Enter Age: ");
+        Age = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter Gender: ");
+        Gender = input.nextLine();
+    }
+
+    static void studentGrade() {
+        System.out.println("\nEnter grades for each subject:");
+
+        System.out.print("General Mathematics: ");
+        grades[0] = input.nextInt();
+
+        System.out.print("General Science: ");
+        grades[1] = input.nextInt();
+
+        System.out.print("Effective Communication: ");
+        grades[2] = input.nextInt();
+
+        System.out.print("Mabisang Komunikasyon: ");
+        grades[3] = input.nextInt();
+
+        System.out.print("Life and Career Skills: ");
+        grades[4] = input.nextInt();
+
+        System.out.print("PKLP: ");
+        grades[5] = input.nextInt();
+
+        System.out.print("Computer Programming: ");
+        grades[6] = input.nextInt();
+    }
+
+    static void finalAverage() {
+        int total = 0;
+
+        for (int i = 0; i < grades.length; i++) {
+            total = total + grades[i];
+        }
+
+        double average = (double) total / grades.length;
+
+        System.out.println("\nGeneral Tiburcio De Leon National High School");
+        System.out.println("Corner Mercado St., Gen. T. De Leon, Valenzuela City");
+        System.out.println("========================================================");
+        System.out.println("                 SENIOR HIGH SCHOOL REPORT CARD");
+        System.out.println("========================================================");
+
+        System.out.println("LRN          : " + LRN);
+        System.out.println("Name         : " + Lastname + ", " + Firstname + " " + Middlename);
+        System.out.println("Track        : " + Track);
+        System.out.println("Grade Level  : " + GradeLevel);
+        System.out.println("Section      : " + Section);
+        System.out.println("Age          : " + Age);
+        System.out.println("Gender       : " + Gender);
+
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("%-35s %10s%n", "Subject", "Grade");
+        System.out.println("--------------------------------------------------------");
+
+        System.out.printf("%-35s %10d%n", "General Mathematics", grades[0]);
+        System.out.printf("%-35s %10d%n", "General Science", grades[1]);
+        System.out.printf("%-35s %10d%n", "Effective Communication", grades[2]);
+        System.out.printf("%-35s %10d%n", "Mabisang Komunikasyon", grades[3]);
+        System.out.printf("%-35s %10d%n", "Life and Career Skills", grades[4]);
+        System.out.printf("%-35s %10d%n", "PKLP", grades[5]);
+        System.out.printf("%-35s %10d%n", "Computer Programming", grades[6]);
+
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("%-35s %10.2f%n", "Final Average", average);
+
+        if (average >= 80) {
+            System.out.printf("%-35s %10s%n", "Remarks", "PASSED");
+        } else {
+            System.out.printf("%-35s %10s%n", "Remarks", "FAILED");
+        }
+
+        System.out.println("========================================================");
+    }
+    public static void main(String[] args) {
+        studentInformation();
+        studentGrade();
+        finalAverage();
+    }
+}
